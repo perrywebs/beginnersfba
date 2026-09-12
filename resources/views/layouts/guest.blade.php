@@ -14,18 +14,18 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <title>Aidigitalglobalmarketing &amp; eCommerce Virtual Assistance for Amazon, Etsy and Shopify - Aidigitalglobalmarketing</title>
+    <title>{{ env('APP_NAME')}} &amp; eCommerce Virtual Assistance for Amazon, Etsy and Shopify - {{ env('APP_NAME')}}</title>
     <meta name="description"
-        content="Aidigitalglobalmarketing &amp; eCommerce Management. Serving US, UK, EU clients. We help you sell on Amazon, Etsy and Shopify high ticket dropshipping stores.">
+        content="{{ env('APP_NAME')}} &amp; eCommerce Management. Serving US, UK, EU clients. We help you sell on Amazon, Etsy and Shopify high ticket dropshipping stores.">
     <link rel="canonical" href="index">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
     <meta property="og:title"
-        content="Aidigitalglobalmarketing &amp; eCommerce Virtual Assistance for Amazon, Etsy and Shopify - Aidigitalglobalmarketing">
+        content="{{ env('APP_NAME')}} &amp; eCommerce Virtual Assistance for Amazon, Etsy and Shopify - {{ env('APP_NAME')}}">
     <meta property="og:description"
-        content="Aidigitalglobalmarketing &amp; eCommerce Management. Serving US, UK, EU clients. We help you sell on Amazon, Etsy and Shopify high ticket dropshipping stores.">
-    <meta property="og:url" content="https://Aidigitalglobalmarketing.live/">
-    <meta property="og:site_name" content="Aidigitalglobalmarketing">
+        content="{{ env('APP_NAME')}} &amp; eCommerce Management. Serving US, UK, EU clients. We help you sell on Amazon, Etsy and Shopify high ticket dropshipping stores.">
+    <meta property="og:url" content="https://{{ env('APP_NAME')}}.live/">
+    <meta property="og:site_name" content="{{ env('APP_NAME')}}">
     <meta property="article:modified_time" content="2023-10-09T04:54:58+00:00">
     <meta property="og:image" content="{{asset('homeAssets/images/G/01/sell/images/favicon.ico')}}">
     <meta property="og:image:width" content="500">
@@ -905,7 +905,7 @@
                 <div class="row" id="row-1785080347">
                     <div id="col-1170101573" class="col medium-4 small-12 large-4">
                         <div class="col-inner">
-                            <h3>About Aidigitalglobalmarketing</h3>
+                            <h3>About {{ env('APP_NAME')}}</h3>
                             <p>We find, launch and grow high ROI products on Amazon, Shopify and Etsy for new sellers
                             </p>
                         </div>
@@ -963,7 +963,7 @@
                         </div>
 
                         <div class="footer-primary pull-left">
-                            <div class="copyright-footer">Copyright 2024 © <strong>Aidigitalglobalmarketing</strong></div>
+                            <div class="copyright-footer">Copyright 2024 © <strong>{{ env('APP_NAME')}}</strong></div>
                         </div>
                     </div>
                 </div>
