@@ -1444,7 +1444,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1471,7 +1471,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1498,7 +1498,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1525,7 +1525,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1552,7 +1552,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1579,7 +1579,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1606,7 +1606,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1634,7 +1634,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1662,7 +1662,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1690,7 +1690,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1718,7 +1718,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1746,7 +1746,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1774,7 +1774,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1802,7 +1802,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -1830,7 +1830,7 @@
                                 </noscript>
                             </div>
                             <div class="box-text text-left">
-                                <p>Aidigitalglobalmarketing</p>
+                                <p>{{ env('APP_NAME')}}</p>
                             </div>
                         </div>
                     </div>
@@ -2730,7 +2730,7 @@
                         <div class="col-inner text-center">
                             <h2 class="uppercase"><span style="font-size: 100%;">ABOUT Us</span></h2>
                             <p class="lead">Experienced in launching products on Amazon, Shopify, Etsy and
-                                Walmart. Aidigitalglobalmarketing is working with new online sellers like you. We launch and
+                                Walmart. {{ env('APP_NAME')}} is working with new online sellers like you. We launch and
                                 grow your brand for you.</p>
                         </div>
                     </div>
@@ -2745,7 +2745,7 @@
                                             provide?</span>
                                     </a>
                                     <div class="accordion-inner">
-                                        <p>Aidigitalglobalmarketing: Private Label and Wholesale A to Z management</p>
+                                        <p>{{ env('APP_NAME')}}: Private Label and Wholesale A to Z management</p>
                                         <p>Etsy: Find US based suppliers, launch and grow your Etsy store</p>
                                         <p>Shopify: Create branded store, run FB ads, supplier management</p>
                                     </div>
@@ -2860,7 +2860,7 @@
                         <div class="box box-default box-text-bottom box-blog-post has-hover">
                             <div class="box-text text-center">
                                 <div class="box-text-inner blog-post-inner">
-                                    <h5 class="post-title is-large">How to Start Aidigitalglobalmarketing Business in
+                                    <h5 class="post-title is-large">How to Start {{ env('APP_NAME')}} Business in
                                         2022?
                                         Complete Step by Step Guide for Beginners [Updated]</h5>
                                     <div class="post-meta is-small op-8">August 2, 2018</div>

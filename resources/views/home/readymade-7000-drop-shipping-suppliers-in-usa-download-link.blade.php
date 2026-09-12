@@ -190,8 +190,8 @@
                                     </div>
                                     <div class="flex-col flex-grow">
                                         <a href="../how-to-launch-your-first-product-on-amazon-in-2021/index.html"
-                                            title="How to Start Aidigitalglobalmarketing Business in 2022? Complete Step by Step Guide for Beginners [Updated]">How
-                                            to Start Aidigitalglobalmarketing Business in 2022? Complete Step by Step Guide
+                                            title="How to Start {{ env('APP_NAME')}} Business in 2022? Complete Step by Step Guide for Beginners [Updated]">How
+                                            to Start {{ env('APP_NAME')}} Business in 2022? Complete Step by Step Guide
                                             for Beginners [Updated]</a>
                                         <span class="post_comments op-7 block is-xsmall"><a
                                                 href="../how-to-launch-your-first-product-on-amazon-in-2021/index.html#respond"></a></span>

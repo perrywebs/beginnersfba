@@ -20,7 +20,7 @@
                         <header class="entry-header">
                             <div class="entry-header-text entry-header-text-top text-center">
 
-                                <h1 class="entry-title">How to Start Aidigitalglobalmarketing Business in 2022? Complete
+                                <h1 class="entry-title">How to Start {{ env('APP_NAME')}} Business in 2022? Complete
                                     Step by Step Guide for Beginners [Updated]</h1>
                                 <div class="entry-divider is-divider small"></div>
 
@@ -368,7 +368,7 @@
                                     selecting search word, platinum keyword, etc.</li>
                                 <li>Check for the listing of main competitor and best seller on Amazon in this
                                     niche.</li>
-                                <li>Aidigitalglobalmarketing has many steps to follow, it takes 2 to 4 months to follow all
+                                <li>{{ env('APP_NAME')}} has many steps to follow, it takes 2 to 4 months to follow all
                                     the steps and launch a great product.</li>
                             </ul>
                             <blockquote>
