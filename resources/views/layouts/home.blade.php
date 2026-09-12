@@ -1,40 +1,77 @@
 <!DOCTYPE html>
 
 <head>
+
     <meta charset="UTF-8">
-    <link rel="profile" href="http://gmpg.org/xfn/11">
-    <link rel="pingback" href="xmlrpc.php">
-    <link href="{{ asset('homeAssets/images/favicon.png') }}" rel="shortcut icon"
-        type="image/x-icon">
+
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="pingback" href="{{ url('xmlrpc.php') }}">
+
+    {{-- Favicon --}}
+    <link rel="icon" href="{{ asset('homeAssets/images/favicon.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('homeAssets/images/favicon.png') }}" type="image/png">
 
     <script>
-        (function (html) {
+        (function(html) {
             html.className = html.className.replace(/\bno-js\b/, "js");
         })(document.documentElement);
     </script>
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <title>{{ env('APP_NAME')}} &amp; eCommerce Virtual Assistance for Amazon, Etsy and Shopify - {{ env('APP_NAME')}}</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{-- Basic SEO --}}
+    <title>
+        {{ env('APP_NAME') }} &amp; eCommerce Virtual Assistance for Amazon, Etsy and Shopify
+    </title>
+
     <meta name="description"
-        content="{{ env('APP_NAME')}} &amp; eCommerce Management. Serving US, UK, EU clients. We help you sell on Amazon, Etsy and Shopify high ticket dropshipping stores.">
-    <link rel="canonical" href="index">
+        content="{{ env('APP_NAME') }} &amp; eCommerce Management. Serving US, UK, EU clients. We help you sell on Amazon, Etsy and Shopify high ticket dropshipping stores.">
+
+    <link rel="canonical" href="{{ url('/') }}">
+
+    {{-- Open Graph / WhatsApp / Facebook / LinkedIn --}}
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
+
     <meta property="og:title"
-        content="{{ env('APP_NAME')}} &amp; eCommerce Virtual Assistance for Amazon, Etsy and Shopify - {{ env('APP_NAME')}}">
+        content="{{ env('APP_NAME') }} &amp; eCommerce Virtual Assistance for Amazon, Etsy and Shopify">
+
     <meta property="og:description"
-        content="{{ env('APP_NAME')}} &amp; eCommerce Management. Serving US, UK, EU clients. We help you sell on Amazon, Etsy and Shopify high ticket dropshipping stores.">
-    <meta property="og:url" content="https://{{ env('APP_NAME')}}.live/">
-    <meta property="og:site_name" content="{{ env('APP_NAME')}}">
-    <meta property="article:modified_time" content="2023-10-09T04:54:58+00:00">
-    <meta property="og:image" content="{{asset('homeAssets/images/logo.png')}}">
+        content="{{ env('APP_NAME') }} &amp; eCommerce Management. Serving US, UK, EU clients. We help you sell on Amazon, Etsy and Shopify high ticket dropshipping stores.">
+
+    <meta property="og:url" content="{{ url('/') }}">
+
+    <meta property="og:site_name" content="{{ env('APP_NAME') }}">
+
+    {{-- Social preview image --}}
+    <meta property="og:image" content="{{ asset('homeAssets/images/logo.png') }}">
+
+    <meta property="og:image:secure_url" content="{{ asset('homeAssets/images/logo.png') }}">
+
+    <meta property="og:image:type" content="image/png">
+
     <meta property="og:image:width" content="500">
+
     <meta property="og:image:height" content="500">
-    <meta property="og:image:type" content="{{asset('homeAssets/images/favicon.png')}}">
+
+    <meta property="og:image:alt" content="{{ env('APP_NAME') }}">
+
+    {{-- Twitter / X --}}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:label1" content="Est. reading time">
-    <meta name="twitter:data1" content="7 minutes">
+
+    <meta name="twitter:title"
+        content="{{ env('APP_NAME') }} &amp; eCommerce Virtual Assistance for Amazon, Etsy and Shopify">
+
+    <meta name="twitter:description"
+        content="{{ env('APP_NAME') }} &amp; eCommerce Management. Serving US, UK, EU clients. We help you sell on Amazon, Etsy and Shopify high ticket dropshipping stores.">
+
+    <meta name="twitter:image" content="{{ asset('homeAssets/images/logo.png') }}">
+
+    <meta name="twitter:image:alt" content="{{ env('APP_NAME') }}">
+
+
     <script type="application/ld+json" class="yoast-schema-graph">
         {
                 "@context": "https://schema.org",
@@ -109,60 +146,73 @@
             ext: ".png",
             svgUrl: "https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/",
             svgExt: ".svg",
-            source: { concatemoji: "https:\/\/beginnersfba.online\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.9.1" },
+            source: {
+                concatemoji: "https:\/\/beginnersfba.online\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.9.1"
+            },
         };
         /*! This file is auto-generated */
-        !(function (e, a, t) {
+        !(function(e, a, t) {
             var n,
                 r,
                 o,
                 i = a.createElement("canvas"),
                 p = i.getContext && i.getContext("2d");
+
             function s(e, t) {
                 var a = String.fromCharCode;
                 p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, e), 0, 0);
                 e = i.toDataURL();
                 return p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, t), 0, 0), e === i.toDataURL();
             }
+
             function c(e) {
                 var t = a.createElement("script");
                 (t.src = e), (t.defer = t.type = "text/javascript"), a.getElementsByTagName("head")[0].appendChild(t);
             }
-            for (o = Array("flag", "emoji"), t.supports = { everything: !0, everythingExceptFlag: !0 }, r = 0; r < o.length; r++)
-                (t.supports[o[r]] = (function (e) {
+            for (o = Array("flag", "emoji"), t.supports = {
+                    everything: !0,
+                    everythingExceptFlag: !0
+                }, r = 0; r < o.length; r++)
+                (t.supports[o[r]] = (function(e) {
                     if (!p || !p.fillText) return !1;
                     switch (((p.textBaseline = "top"), (p.font = "600 32px Arial"), e)) {
                         case "flag":
-                            return s([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039])
-                                ? !1
-                                : !s([55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819]) &&
+                            return s([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039]) ?
+                                !1 :
+                                !s([55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819]) &&
                                 !s(
-                                    [55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447],
-                                    [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447]
+                                    [55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430,
+                                        56128, 56423, 56128, 56447
+                                    ],
+                                    [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421,
+                                        8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447
+                                    ]
                                 );
                         case "emoji":
                             return !s([10084, 65039, 8205, 55357, 56613], [10084, 65039, 8203, 55357, 56613]);
                     }
                     return !1;
                 })(o[r])),
-                    (t.supports.everything = t.supports.everything && t.supports[o[r]]),
-                    "flag" !== o[r] && (t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[o[r]]);
+                (t.supports.everything = t.supports.everything && t.supports[o[r]]),
+                "flag" !== o[r] && (t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[o[
+                    r]]);
             (t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag),
-                (t.DOMReady = !1),
-                (t.readyCallback = function () {
-                    t.DOMReady = !0;
-                }),
-                t.supports.everything ||
-                ((n = function () {
-                    t.readyCallback();
-                }),
-                    a.addEventListener
-                        ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !1))
-                        : (e.attachEvent("onload", n),
-                            a.attachEvent("onreadystatechange", function () {
-                                "complete" === a.readyState && t.readyCallback();
-                            })),
-                    (n = t.source || {}).concatemoji ? c(n.concatemoji) : n.wpemoji && n.twemoji && (c(n.twemoji), c(n.wpemoji)));
+            (t.DOMReady = !1),
+            (t.readyCallback = function() {
+                t.DOMReady = !0;
+            }),
+            t.supports.everything ||
+                ((n = function() {
+                        t.readyCallback();
+                    }),
+                    a.addEventListener ?
+                    (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !1)) :
+                    (e.attachEvent("onload", n),
+                        a.attachEvent("onreadystatechange", function() {
+                            "complete" === a.readyState && t.readyCallback();
+                        })),
+                    (n = t.source || {}).concatemoji ? c(n.concatemoji) : n.wpemoji && n.twemoji && (c(n.twemoji), c(n
+                        .wpemoji)));
         })(window, document, window._wpemojiSettings);
     </script>
     <style type="text/css">
@@ -439,9 +489,11 @@
         href="homeAssets/wp-content/plugins/wpforms-lite/assets/css/wpforms-full.mine3d1.css?ver=1.7.2.1"
         type="text/css" media="all">
     <link rel="stylesheet" id="flatsome-icons-css"
-        href="homeAssets/wp-content/themes/flatsome/assets/css/fl-iconsae34.css?ver=3.12" type="text/css" media="all">
+        href="homeAssets/wp-content/themes/flatsome/assets/css/fl-iconsae34.css?ver=3.12" type="text/css"
+        media="all">
     <link rel="stylesheet" id="flatsome-main-css"
-        href="homeAssets/wp-content/themes/flatsome/assets/css/flatsome2916.css?ver=3.13.1" type="text/css" media="all">
+        href="homeAssets/wp-content/themes/flatsome/assets/css/flatsome2916.css?ver=3.13.1" type="text/css"
+        media="all">
     <link rel="stylesheet" id="flatsome-style-css"
         href="homeAssets/wp-content/themes/flatsome-child/style6aec.css?ver=3.0" type="text/css" media="all">
     <link rel="stylesheet" id="flatsome-googlefonts-css"
@@ -451,8 +503,8 @@
     <!-- Google Analytics snippet added by Site Kit -->
 
     <!-- End Google Analytics snippet added by Site Kit -->
-    <script type="text/javascript" src="homeAssets/wp-includes/js/jquery/jquery.minaf6c.js?ver=3.6.0"
-        id="jquery-core-js"></script>
+    <script type="text/javascript" src="homeAssets/wp-includes/js/jquery/jquery.minaf6c.js?ver=3.6.0" id="jquery-core-js">
+    </script>
     <script type="text/javascript" src="homeAssets/wp-includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2"
         id="jquery-migrate-js"></script>
     <link rel="https://api.w.org/" href="homeAssets/wp-json/index">
@@ -508,7 +560,7 @@
                 style.type = "text/css";
                 style.styleSheet.cssText = ":before,:after{content:none !important";
                 head.appendChild(style);
-                setTimeout(function () {
+                setTimeout(function() {
                     head.removeChild(style);
                 }, 0);
             </script>
@@ -831,17 +883,30 @@
     class="home page-template page-template-page-transparent-header-light page-template-page-transparent-header-light-php page page-id-514 lightbox nav-dropdown-has-arrow nav-dropdown-has-shadow nav-dropdown-has-border">
 
     <!-- Preloader -->
-    <div id="site-preloader" style="position:fixed !important; top:0 !important; left:0 !important; right:0 !important; bottom:0 !important; width:100vw !important; height:100vh !important; background:#fff; z-index:99999; display:flex; align-items:center; justify-content:center; flex-direction:column; transition: opacity 0.4s ease; margin:0; padding:0; overflow:hidden;">
-        <img src="{{ asset('homeAssets/images/preloadimg.png') }}" alt="Loading..." style="max-width: 180px; width: 180px; height: auto; flex-shrink: 0; animation: preloaderPulse 1.2s ease-in-out infinite;">
+    <div id="site-preloader"
+        style="position:fixed !important; top:0 !important; left:0 !important; right:0 !important; bottom:0 !important; width:100vw !important; height:100vh !important; background:#fff; z-index:99999; display:flex; align-items:center; justify-content:center; flex-direction:column; transition: opacity 0.4s ease; margin:0; padding:0; overflow:hidden;">
+        <img src="{{ asset('homeAssets/images/preloadimg.png') }}" alt="Loading..."
+            style="max-width: 180px; width: 180px; height: auto; flex-shrink: 0; animation: preloaderPulse 1.2s ease-in-out infinite;">
         <style>
             @keyframes preloaderPulse {
-                0%, 100% { transform: scale(1); opacity: 0.8; }
-                50% { transform: scale(1.05); opacity: 1; }
+
+                0%,
+                100% {
+                    transform: scale(1);
+                    opacity: 0.8;
+                }
+
+                50% {
+                    transform: scale(1.05);
+                    opacity: 1;
+                }
             }
+
             #site-preloader.preloader-hidden {
                 display: none !important;
                 pointer-events: none !important;
             }
+
             @media (max-width: 768px) {
                 #site-preloader {
                     position: fixed !important;
@@ -887,8 +952,8 @@
     </script>
 
     <!-- End Google Tag Manager (noscript) snippet added by Site Kit -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
         <defs>
             <filter id="wp-duotone-dark-grayscale">
                 <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
@@ -904,8 +969,8 @@
             </filter>
         </defs>
     </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
         <defs>
             <filter id="wp-duotone-grayscale">
                 <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
@@ -921,8 +986,8 @@
             </filter>
         </defs>
     </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
         <defs>
             <filter id="wp-duotone-purple-yellow">
                 <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
@@ -938,8 +1003,8 @@
             </filter>
         </defs>
     </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
         <defs>
             <filter id="wp-duotone-blue-red">
                 <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
@@ -955,8 +1020,8 @@
             </filter>
         </defs>
     </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
         <defs>
             <filter id="wp-duotone-midnight">
                 <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
@@ -972,8 +1037,8 @@
             </filter>
         </defs>
     </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
         <defs>
             <filter id="wp-duotone-magenta-yellow">
                 <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
@@ -989,8 +1054,8 @@
             </filter>
         </defs>
     </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
         <defs>
             <filter id="wp-duotone-purple-green">
                 <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
@@ -1006,8 +1071,8 @@
             </filter>
         </defs>
     </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
         <defs>
             <filter id="wp-duotone-blue-orange">
                 <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
