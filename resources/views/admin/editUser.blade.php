@@ -132,7 +132,7 @@
                                     </td>
                                     <td>{{$affiliate->product_link}}</td>
                                     <td>${{$affiliate->product_price}}</td>
-                                    <td>{{$affiliate->product_description}}</td>
+                                    <td>{{ \Illuminate\Support\Str::words($affiliate->product_description, 10, '...') }}</td>
                                     <td>{{$affiliate->ecommerce_platform}}</td>
                                 </tr>
                                 @empty
