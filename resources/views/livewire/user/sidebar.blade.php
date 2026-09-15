@@ -120,8 +120,8 @@
 
             <!-- Recharge -->
             <li class="nav-item custom-nav-item">
-                <a class="nav-link custom-nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
-                    data-bs-target="#fund">
+                <a class="nav-link custom-nav-link {{ request()->routeIs('recharge.*') ? '' : 'collapsed' }}"
+                    href="{{ route('recharge.index') }}">
                     <svg class="nav-icon" viewBox="0 0 24 24">
                         <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                         <line x1="1" y1="10" x2="23" y2="10"></line>

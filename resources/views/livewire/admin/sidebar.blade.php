@@ -133,6 +133,33 @@
                 </a>
             </li>
 
+            <!-- Payment Methods -->
+            <li class="nav-item custom-nav-item">
+                <a class="nav-link custom-nav-link {{ request()->routeIs('admin_payment_methods.*') ? '' : 'collapsed' }}"
+                    href="{{ route('admin_payment_methods.index') }}" wire:navigate>
+                    <i class="bi bi-credit-card"></i>
+                    <span>Payment Methods</span>
+                </a>
+            </li>
+
+            <!-- Recharges -->
+            <li class="nav-item custom-nav-item">
+                <a class="nav-link custom-nav-link {{ request()->routeIs('admin_deposits.*') ? '' : 'collapsed' }}"
+                    href="{{ route('admin_deposits.index') }}" wire:navigate>
+                    <i class="bi bi-arrow-down-circle"></i>
+                    <span>Recharges</span>
+                </a>
+            </li>
+
+            <!-- Withdrawals -->
+            <li class="nav-item custom-nav-item">
+                <a class="nav-link custom-nav-link {{ request()->routeIs('admin_withdrawals.*') ? '' : 'collapsed' }}"
+                    href="{{ route('admin_withdrawals.index') }}" wire:navigate>
+                    <i class="bi bi-arrow-up-circle"></i>
+                    <span>Withdrawals</span>
+                </a>
+            </li>
+
             <hr class="custom-sidebar-divider">
 
             <!-- Sign Out -->

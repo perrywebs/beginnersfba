@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\PaymentMethodController;
+use App\Http\Controllers\Admin\TransactionReviewController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\User\RechargeController;
 use App\Http\Controllers\UserController;
 use App\Models\AddProduct;
 use App\Models\User;
@@ -127,6 +130,11 @@ Route::prefix('users')->group(function () {
 
         Route::get('/pin', [UserController::class, 'pin'])->name('pin');
 
+        // Recharge (deposit) — dedicated pages, database-driven payment methods
+        Route::get('/recharge', [RechargeController::class, 'index'])->name('recharge.index');
+        Route::get('/recharge/{paymentMethod}', [RechargeController::class, 'show'])->name('recharge.show');
+        Route::post('/recharge/{paymentMethod}', [RechargeController::class, 'store'])->name('recharge.store');
+
         // View profile
         Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
 
@@ -147,5 +155,24 @@ Route::prefix('admin')->group(function () {
         Route::get('/bookings', [AdminController::class, 'bookings'])->name('admin_bookings');
         Route::get('/bookings/{booking}', [AdminController::class, 'bookings_view'])->name('admin_bookings_view');
         Route::get('/admin-wallet', [AdminController::class, 'admin_wallet'])->name('admin_wallet');
+
+        // Payment method management (database-driven, extensible)
+        Route::get('/payment-methods', [PaymentMethodController::class, 'index'])->name('admin_payment_methods.index');
+        Route::get('/payment-methods/create', [PaymentMethodController::class, 'create'])->name('admin_payment_methods.create');
+        Route::post('/payment-methods', [PaymentMethodController::class, 'store'])->name('admin_payment_methods.store');
+        Route::get('/payment-methods/{paymentMethod}/edit', [PaymentMethodController::class, 'edit'])->name('admin_payment_methods.edit');
+        Route::put('/payment-methods/{paymentMethod}', [PaymentMethodController::class, 'update'])->name('admin_payment_methods.update');
+        Route::delete('/payment-methods/{paymentMethod}', [PaymentMethodController::class, 'destroy'])->name('admin_payment_methods.destroy');
+        Route::post('/payment-methods/{paymentMethod}/toggle', [PaymentMethodController::class, 'toggle'])->name('admin_payment_methods.toggle');
+
+        // Global recharge / withdrawal review
+        Route::get('/deposits', [TransactionReviewController::class, 'deposits'])->name('admin_deposits.index');
+        Route::get('/deposits/{deposit}', [TransactionReviewController::class, 'showDeposit'])->name('admin_deposits.show');
+        Route::post('/deposits/{deposit}/approve', [TransactionReviewController::class, 'approveDeposit'])->name('admin_deposits.approve');
+        Route::post('/deposits/{deposit}/reject', [TransactionReviewController::class, 'rejectDeposit'])->name('admin_deposits.reject');
+        Route::get('/withdrawals', [TransactionReviewController::class, 'withdrawals'])->name('admin_withdrawals.index');
+        Route::get('/withdrawals/{withdrawal}', [TransactionReviewController::class, 'showWithdrawal'])->name('admin_withdrawals.show');
+        Route::post('/withdrawals/{withdrawal}/approve', [TransactionReviewController::class, 'approveWithdrawal'])->name('admin_withdrawals.approve');
+        Route::post('/withdrawals/{withdrawal}/reject', [TransactionReviewController::class, 'rejectWithdrawal'])->name('admin_withdrawals.reject');
     });
 });

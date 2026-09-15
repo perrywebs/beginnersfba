@@ -9,14 +9,56 @@
                     <!-- Withdrawal Details Form -->
                     <form wire:submit.prevent="submitWithdrawalDetails">
                         <div class="col-12">
+                            <label class="form-label">Payment Method <span class="text-danger">*</span></label>
+                            <select wire:model.live="payment_method_id" class="form-select" required>
+                                @forelse ($methods as $m)
+                                    <option value="{{ $m->id }}">{{ $m->name }} ({{ $m->type_label }})</option>
+                                @empty
+                                    <option value="">No withdrawal methods available</option>
+                                @endforelse
+                            </select>
+                            @error('payment_method_id')
+                            <em class="text-danger">{{ $message }}</em>
+                            @enderror
+                        </div>
+                        <div class="col-12">
                             <label for="inputEmail4" class="form-label">Amount (USD) <em class="btn btn-primary"
                                     @disabled(true)>Balance:
                                     ${{auth()->user()->account_bal}}</em></label>
-                            <input type="number" wire:model.blur="amount" class="form-control" id="inputEmail4">
+                            <input type="number" step="0.01" wire:model.blur="amount" class="form-control" id="inputEmail4">
                             @error('amount')
                             <em class="text-danger">{{ $message }}</em>
                             @enderror
                         </div>
+
+                        @if (! empty($methodFields))
+                            @foreach ($methodFields as $field)
+                                <div class="col-12">
+                                    <label class="form-label">{{ $field->label }} @if($field->is_required)<span class="text-danger">*</span>@endif</label>
+                                    @if ($field->type === 'textarea')
+                                        <textarea wire:model.blur="dynamic.{{ $field->name }}" class="form-control" rows="3"
+                                            placeholder="{{ $field->placeholder }}"></textarea>
+                                    @elseif($field->type === 'select')
+                                        <select wire:model.blur="dynamic.{{ $field->name }}" class="form-select">
+                                            <option value="">-- Select {{ $field->label }} --</option>
+                                            @foreach ($field->options_list as $option)
+                                                <option value="{{ $option }}">{{ $option }}</option>
+                                            @endforeach
+                                        </select>
+                                    @else
+                                        <input type="{{ $field->type === 'tel' ? 'tel' : $field->type }}"
+                                            wire:model.blur="dynamic.{{ $field->name }}" class="form-control"
+                                            placeholder="{{ $field->placeholder }}">
+                                    @endif
+                                    @if ($field->help_text)
+                                        <small class="form-text text-muted">{{ $field->help_text }}</small>
+                                    @endif
+                                    @error('dynamic.'.$field->name)
+                                    <em class="text-danger d-block">{{ $message }}</em>
+                                    @enderror
+                                </div>
+                            @endforeach
+                        @else
                         <div class="col-12">
                             <label for="inputEmail4" class="form-label">Acount Name</label>
                             <input type="text" wire:model.blur="account_name" class="form-control" id="inputEmail4">
@@ -60,6 +102,7 @@
                             <em class="text-danger">{{ $message }}</em>
                             @enderror
                         </div>
+                        @endif
                         <hr>
                         <div class="text-center">
                             <button type="reset" class="btn btn-danger btn-sm">Reset</button>
@@ -128,23 +171,26 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Reference</th>
                             <th scope="col">Date</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Account Name</th>
                             <th scope="col">Account Number</th>
                             <th scope="col">Payment Method</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Admin Remark</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($withdrawals as $item => $withdrawal)
                         <tr>
                             <th scope="row">{{ $item+1}}</th>
+                            <td class="small">{{ $withdrawal->reference ?? '—' }}</td>
                             <td>{{ date('Y/M/d h:i a', strtotime($withdrawal->created_at)) }}</td>
                             <td>${{ number_format($withdrawal->amount) }}</td>
                             <td>{{ $withdrawal->account_name }}</td>
                             <td>{{ $withdrawal->account_number }}</td>
-                            <td>Bank - {{$withdrawal->bank_name}}</td>
+                            <td>{{ $withdrawal->paymentMethod->name ?? ('Bank - '.$withdrawal->bank_name) }}</td>
                             <td>
                                 @if ($withdrawal->status == 1)
                                 <span class="badge rounded-pill bg-primary">PENDING</span>
@@ -154,6 +200,7 @@
                                 <span class="badge rounded-pill bg-danger">Denied</span>
                                 @endif
                             </td>
+                            <td class="small">{{ $withdrawal->admin_remark ?? '—' }}</td>
                         </tr>
                         @empty
                         <tr>

@@ -75,7 +75,7 @@ class EditUserWithdrawalCodes extends Component
         
         $user_id = $this->user_data->id;
         $result = User::where("id",$user_id)->update([
-            "imf_code" => $this->edit_cot_code,
+            "cot_code" => $this->edit_cot_code,
         ]);
 
                 
